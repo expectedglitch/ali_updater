@@ -1,0 +1,143 @@
+.task {
+    font-size: 48px;   
+    margin-bottom: 30px; 
+}
+.task.products {
+    color:teal;
+}
+.task.shipping {
+    color:tomato;
+}
+
+
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+}
+
+.selection_counter span{
+    color: green;
+    font-weight: 700;
+}
+
+button.product_update {    
+    width: 150px;
+}
+
+.buttons {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+
+}
+.temporary_section {
+    display: flex;    
+}
+
+.wrap {        
+    display: flex;
+    flex-direction: column;    
+    justify-content: space-between;
+    align-items: center; 
+    height: 300px;       
+    margin-top: -30px;
+    margin-bottom: 30px;    
+}
+.selection {
+    text-align: center;
+    width: 600px;
+    height: 100px;
+    flex-shrink: 0;
+}
+
+.description{
+    margin-top: 5px;
+    color: darkgray;
+}
+.description:not(.chosen) {
+    display: none;
+}
+
+.options {
+    display: block;
+    margin-top: 10px;;
+}
+
+.shippingUpdateMode {
+    display: flex;
+    width: 600px;
+    justify-content: space-around;
+}
+
+.mat-checkbox ~ .mat-checkbox {
+    margin-left: 16px;
+}
+
+
+
+
+.ali_update_buttons {    
+    width: 320px;
+}
+
+.updating {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.product_update, .stop_updating {
+    width: 155px;
+}
+
+.pump_display {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.pump_display .ali, .pump_display .fire {
+    width: 140px;
+    height: 30px;
+    background-color: #F0F0F0;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px;
+    box-sizing: border-box;
+    color: lightgray;
+}
+.pump_display .arrow {
+    font-size: 36px;
+}
+
+.pu,.pump_display .ali.active, .pu,.pump_display .fire.active {
+    background-color: green;
+}
+
+
+.counter {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.counter button:not([disabled]) {
+    color: red;
+}
+
+.counter span {
+    font-weight: 700;
+}
+
+.counter span.s {
+    color: green;
+}
+
+.counter span.f {
+    color: red;
+}
+
+.counter .successful, .counter .failed { 
+    padding-top: 10px;
+    width: 82px;;
+}

@@ -1,0 +1,48 @@
+<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" [disabled]="!auth.isLoggedIn">
+  <mat-icon class="menu_dots">more_vert</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <button 
+    mat-menu-item 
+    routerLink='/'
+    routerLinkActive
+    [routerLinkActiveOptions]="{exact:true}"
+    #home="routerLinkActive" 
+    [disabled]="home.isActive"
+    >
+    <mat-icon>home</mat-icon>
+    <span>Home</span>
+  </button>    
+  <button 
+    mat-menu-item 
+    [routerLink]="['/updating/products']"
+    routerLinkActive
+    [routerLinkActiveOptions]="{exact:true}"
+    #prods="routerLinkActive" 
+    [disabled]="prods.isActive"
+    >
+    <mat-icon>update</mat-icon>
+    <span>Update Products</span>
+  </button>
+  <button 
+    mat-menu-item 
+    [routerLink]="['/updating/shipping']"
+    routerLinkActive
+    [routerLinkActiveOptions]="{exact:true}"
+    #ships="routerLinkActive" 
+    [disabled]="ships.isActive"
+    >
+    <mat-icon>track_changes</mat-icon>
+    <span>Update Shippings</span>
+  </button>
+</mat-menu>
+
+<span class='auth-section'>
+    <span class="auth" *ngIf="auth.isLoggedIn">
+        <span>
+            <span class="greetings">Hi, <span class="user_name">{{auth.userName}}</span> !</span>  
+            <a class="auth_link" (click)="signout()">(Sign out)</a>
+        </span>
+        <count-down></count-down>  
+    </span>
+</span>

@@ -1,0 +1,97 @@
+table {
+  width: 100%;
+}
+
+.mat-row.outdated {
+  background-color: #FFFACD;
+}
+
+.mat-row.removed {
+  background-color: #FFB6C1;
+}
+
+.mat-row:not(.outdated):not(.removed) {
+  background-color: darkseagreen;
+}
+
+div.country {position: relative;}
+.country::before {    
+  display: block;
+  position: absolute;
+  left: -60px;
+  font-size: 10px;
+}
+.country::after {      
+  position: absolute;
+  left: 30px;
+  font-size: 10px;  
+  width: 150px;
+}
+
+.mat-row .country {
+  margin-right: 3px;
+}
+.mat-row:not(.removed) .country.cnt_outdated {  
+  color: red;
+}
+
+.mat-row:not(.removed) .country:not(.cnt_outdated) { 
+  color: green;
+}
+
+.country.ali_pending span, .country.recording_200 span  {
+  font-weight: 700;
+}
+
+.country.ali_pending {
+  border: 2px solid black;
+  padding-right: 2px;
+  padding-left: 2px;  
+}
+
+.country.ali_received {  
+  border: 2px solid lightgray;
+  padding-right: 2px;
+  padding-left: 2px;  
+}
+
+.country.recording_200, .country.recording_404 {
+  border: 2px solid #00FFFF;
+  padding-right: 2px;
+  padding-left: 2px;  
+}
+
+.country.wrong_structure, .country.other_error, .country.failed_to_record, .country.canceled{
+  border: 2px solid red;
+  padding-right: 2px;
+  padding-left: 2px;  
+}
+
+.country.recorded_successfully {
+  border: 2px solid green;
+  padding-right: 2px;
+  padding-left: 2px;  
+}
+
+.mat-column-basic_country, .mat-column-countries, .mat-column-code, .mat-column-title {  
+  min-width: 180px;
+}
+.mat-column-countries{
+  padding-left: 70px;
+  font-size: 12px;
+}
+.countries_wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+.mat-column-title {  
+  font-size: 12px;
+}
+
+.mat-column-links {
+  font-size: 10px;
+}
+
+.mat-column-code {
+  padding-left: 10px;
+}

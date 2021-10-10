@@ -1,0 +1,10 @@
+<div class="reldb">
+    <mat-checkbox #chk>unblock</mat-checkbox><br>    
+    
+    <div class='sources'>
+        <button mat-stroked-button (click)="getRelDBSources()" [disabled]=!chk.checked>Get List from MySQL DB</button>
+        <button mat-stroked-button (click)=upload() [disabled]=!chk.checked>Upload to MySQL DB</button>
+    </div>
+    <div [class.active]=chk.checked class="counter">Uploaded: {{successfulUpload}}/{{totalForUpload}} products</div>
+        
+</div>

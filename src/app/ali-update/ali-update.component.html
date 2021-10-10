@@ -1,0 +1,70 @@
+<div class="wrap">    
+    <span [ngClass]='[updateTask, "task"]'>{{updateTask}}</span>
+    <div class="selection">
+        <mat-radio-group [(ngModel)]="chosenUpdateMode" (change)="modeChangeEvent()">    
+            <mat-radio-button 
+                *ngFor="let mode of updateMode" 
+                [value]="mode.value"  
+                >{{mode.mode}}
+                <span class="selection_counter" *ngIf="mode.value==1">(<span>{{selectedList.length}}</span>)</span>
+            </mat-radio-button>
+            <div class="description" *ngFor="let mode of updateMode" [class.chosen]="(mode.value==chosenUpdateMode)">{{mode.description}}</div>
+        </mat-radio-group>
+
+        <mat-radio-group class="options" *ngIf="(chosenUpdateMode==0)" [(ngModel)]="chosenAutomaticUpdateOption">    
+            <mat-radio-button *ngFor="let o of automaticModeOptions" [value]="o.value">{{o.option}}
+                <span class="selection_counter" *ngIf="o.value==0">(<span>{{outdatedList?.length}} req.</span>)</span>                                                
+                <span class="selection_counter" *ngIf="o.value==1">(<span>{{activeList?.length}} req.</span>)</span>
+                <span class="selection_counter" *ngIf="o.value==2">(<span>{{fullList?.length}} req.</span>)</span>                
+            </mat-radio-button>                
+        </mat-radio-group>        
+    </div>
+
+    <div *ngIf="updateTask=='shipping'" class="shippingUpdateMode">        
+        <mat-radio-group [(ngModel)]="shippingUpdateMode" (change)="shipUpdateOptionEvent()">    
+            <mat-radio-button *ngFor="let o of shipUpdateOptions" [value]="o.value">
+                {{o.option}} cnts              
+            </mat-radio-button>                
+        </mat-radio-group>        
+    </div>
+
+    <div class="buttons">
+        <app-reldb-communication 
+                [task]="updateTask" 
+                [metaList]="metaList"                              
+                >
+        </app-reldb-communication>        
+        <div class="ali_update_buttons">
+            <div class="pump_display">
+                <div class="ali" [class.active]="hasAliPending()">Aliexpress</div>
+                <div class="arrow">&#8594;</div>
+                <div class="fire" [class.active]="hasFirebasePending()">Firebase</div>
+            </div>
+        
+            <div class="updating">
+                <button class="product_update" mat-stroked-button 
+                    (click)="apiUpdateBridge(updateList)"
+                    [disabled]="hasFirebasePending() || hasAliPending()"
+                    >Update ({{updateListLength}} req.)</button>
+        
+                <button class="stop_updating" mat-stroked-button [disabled]="!hasAliPending()"
+                    (click)="cancelUpdating()"
+                    >Stop updating</button>
+            </div>
+            
+            <div class="counter">
+                <div class='successful'>
+                    Succ.: <span *ngIf="totalSuccess" class="s">{{totalSuccess}}</span>        
+                </div>
+                <div class='failed'>
+                    Err.: <span *ngIf="totalFailed" class="f">{{totalFailed}}</span>        
+                </div>
+                <button mat-stroked-button [disabled]="!totalFailed" 
+                    (click)="apiUpdateBridge(errorListToFix)"
+                    >Fix Errors
+                </button>
+            </div>
+        </div>
+    </div>
+                    
+</div>

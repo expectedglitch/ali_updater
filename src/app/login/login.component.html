@@ -1,0 +1,30 @@
+<mat-card>
+    <mat-card-content>
+      <form #f="ngForm" (ngSubmit)="login(f.value)">
+        <h2>Log In</h2>
+
+        <mat-error *ngIf="incorrectCredentials">
+          The username or password were not recognized!
+        </mat-error>
+        <mat-error *ngIf="otherAuthError">
+          Unknown Error has Occurred while Authenticating the User!
+        </mat-error>        
+        <mat-form-field>
+            <input matInput ngModel name="email" #email="ngModel" email placeholder="Email" required autocomplete="off">          
+            <mat-error>
+                Please, provide a valid email address
+            </mat-error>
+        </mat-form-field>
+        
+        <mat-form-field>
+            <input matInput ngModel name="password" #password="ngModel" type="password" minlength="6" placeholder="Password" required autocomplete="off">          
+            <mat-error>                
+                <span *ngIf="password.touched && !password.value?.length">Password is required. </span> 
+                <span *ngIf="password.errors?.minlength">Min length is {{password.errors?.minlength?.requiredLength}} characters.</span>    
+            </mat-error>
+        </mat-form-field>
+
+        <button [disabled]="f.invalid" mat-raised-button color="primary">Login</button>
+      </form>
+    </mat-card-content>
+  </mat-card>

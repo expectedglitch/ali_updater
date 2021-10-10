@@ -1,0 +1,41 @@
+.ali {
+    color: red;
+}
+
+.e{
+    color: red;
+}
+.b{
+    color: blue;
+}
+.a{
+    color: orange;
+}
+.y{
+    color: olivedrab
+}
+
+.front_text{
+    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    justify-content: space-between;
+}
+div {
+    text-align: center;
+    font-size: 36px;    
+}
+
+.liter1, .liter2 {
+    color: #2F4F4F;
+}
+
+.liter2 {
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.to {
+    font-size: 24px;
+}

@@ -1,0 +1,5 @@
+<span [class.expiring]="time.expiring" class="clock" *ngIf="(time$ | async) as time">
+    <span class='hours'>{{time.hours}} </span>Hrs
+    <span class='minutes'>{{time.minutes}} </span>Min
+    <span class='seconds'>{{time.seconds}} </span>s
+</span>
