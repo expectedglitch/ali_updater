@@ -264,7 +264,7 @@ export class AliUpdateComponent implements OnInit, OnDestroy {
               if (this.forRecording.length) this.fireReq.pushItemsToDb(this.forRecording, this.updateTask);              
 
             },
-
+  
             err => console.log(err)            
     );    
   }
