@@ -1,0 +1,16 @@
+button {
+    background-color: green;
+}
+
+.mat-list-item {
+    height: 24px !important;
+    font-size: 14px !important;    
+}
+
+mat-list-item *, mat-list-option * {
+    padding: 0 !important;
+}
+
+.next_step{
+    margin-top: 20px !important;
+}

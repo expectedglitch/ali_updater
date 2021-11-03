@@ -1,0 +1,17 @@
+<div class="indicator">
+    <div class="row_ind">
+        <span class='task'>{{task}}: </span>        
+        <div *ngFor="let cnt of common.cntList50"    
+            class="country"        
+            [class.ali_received]="update_states?update_states[cnt]?.msg=='ali_received':false"                  
+            [class.other_error]="update_states?update_states[cnt]?.msg=='other_error_from_Ali':false"  
+            [class.from_firebase]="update_states?update_states[cnt]?.msg=='from_firebase':false"  
+            [class.from_firebase_outdated]="update_states?update_states[cnt]?.msg=='from_firebase_outdated':false"  
+        
+            >{{cnt}}             
+        </div>        
+    </div>
+    <button color='warn' *ngIf="errorListToFix.length" mat-raised-button class='fix_errors' (click)="fix('err')"> Fix Errors</button>
+    <button color='primary' *ngIf="outdated.length" mat-raised-button class='update' (click)="fix('update')"> Update </button>
+</div>
+<!-- GGG {{update_states | json}} -->

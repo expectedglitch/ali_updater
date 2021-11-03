@@ -1,0 +1,38 @@
+.indicator {
+    display: flex;
+}
+.row_ind {
+    display: flex;    
+    flex-wrap: wrap;
+}
+.task {
+    display: block;
+    width: 70px;
+    font-weight: 700;    
+}
+.task::first-letter {
+    text-transform: uppercase;
+}
+
+.country {
+    border: 2px solid lightgray;
+    padding-right: 2px;
+    padding-left: 2px; 
+    margin: 0 2px;
+}
+
+  
+.country.ali_received, .country.from_firebase {  
+    background-color: #66CDAA;
+}
+.country.from_firebase_outdated {  
+    background-color: #D2691E;
+}
+.country.other_error{
+    background-color: red;
+}
+
+.fix_errors, .update {    
+    margin: 1px 0;
+    margin-left: 5px;
+}

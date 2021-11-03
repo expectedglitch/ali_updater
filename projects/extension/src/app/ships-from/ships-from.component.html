@@ -1,0 +1,6 @@
+<div>Ships from:
+    <mat-radio-group aria-label="Select an option" #from="ngModel" [(ngModel)]="shipsFrom" (change)="updateShipsFrom(from)">
+        <mat-radio-button value="CN">China</mat-radio-button>
+        <mat-radio-button value="US">USA</mat-radio-button>        
+    </mat-radio-group>
+</div>

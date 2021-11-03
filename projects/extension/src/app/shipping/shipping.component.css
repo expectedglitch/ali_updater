@@ -1,0 +1,45 @@
+.shipping {
+    display: flex;
+    max-height: 300px;        
+    justify-content: space-between;
+    margin-top: 30px;
+}
+.us_cost, .paid_cost, .usfailed {
+    margin-left: 10px;
+    margin-top: 8px;
+}
+
+.data {
+    display: flex;
+    flex-direction: column;
+}
+
+.usfailed {
+    color: red;
+}
+
+max-time, ships-from {    
+    display: block;    
+    margin-top: 8px;    
+}
+
+.settings {
+    display: flex;
+    width: 600px;
+    justify-content: space-between;
+}
+ship-methods, .properties {
+    margin: 0 8px;
+}
+.properties {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 140px;
+}
+
+.save_btn {
+    margin-left: 10px;
+}
+
+

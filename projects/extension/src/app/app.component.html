@@ -1,0 +1,11 @@
+<loading-indicator [task]="'shipping'" [code]="code" (fixes)="fixes($event)"></loading-indicator>
+<loading-indicator [task]="'product'" [code]="code" (fixes)="fixes($event)"></loading-indicator>
+
+
+<button color='primary' [disabled]="!dataProvided.product || !dataProvided.shipping" mat-raised-button class='next_step' (click)="nextStep()">NEXT</button>
+
+<shipping *ngIf="shippingVisible" [settings]="settings">
+</shipping>
+<product></product>
+
+<button color='primary' mat-raised-button class='save' (click)="saveListing()">Save</button>

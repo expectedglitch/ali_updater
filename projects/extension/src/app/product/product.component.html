@@ -1,0 +1,27 @@
+<div class="product-container">
+    <h2>Active</h2>
+  
+    <div
+      cdkDropList
+      #activeList="cdkDropList"
+      [cdkDropListData]="active"
+      [cdkDropListConnectedTo]="[garbageList]"
+      class="variations-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="variation-box" *ngFor="let item of active" cdkDrag>{{item}}</div>
+    </div>
+  </div>
+  
+  <div class="product-container">
+    <h2>Garbage</h2>
+  
+    <div
+      cdkDropList
+      #garbageList="cdkDropList"
+      [cdkDropListData]="garbage"
+      [cdkDropListConnectedTo]="[activeList]"
+      class="variations-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="variation-box" *ngFor="let item of garbage" cdkDrag>{{item}}</div>
+    </div>
+  </div>

@@ -1,0 +1,7 @@
+<div class="methods">            
+    <mat-selection-list ngModel #list="ngModel" (click)="updateMethods(list)">
+        <mat-list-option *ngFor="let method of methods" [value]="method" [selected]="activeMethods.includes(method)">
+          {{method}}
+        </mat-list-option>
+    </mat-selection-list>
+</div>

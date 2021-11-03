@@ -1,0 +1,22 @@
+<div class='shipping' *ngIf='dt.shipping.length && dt.product.length && usShCost!==undefined'>
+    <div class='data' *ngIf='usShCost!==10000; else usfailed'>        
+        <div class='us_cost'>US Shipping Cost (will be free) = {{usShCost}}</div>        
+        <countries-list                        
+            [countriesfree]="countries(usShCost)"
+            >
+        </countries-list>                    
+    </div>
+    
+    <div class="settings">                
+        <ship-methods [methods]="allMethods" [(activeMethods)]="activeMethods"></ship-methods>        
+        <div class="properties">
+            <max-time [(maxTime)]="maxtime"></max-time>
+            <ships-from [(shipsFrom)]="shipsfrom"></ships-from>
+            <countries-update [(shipUpdateMode)]='shipUpdateMode'></countries-update>
+        </div>
+    </div>    
+</div>
+
+<ng-template #usfailed>
+    <div class='usfailed'>Failed to detect US Shipping by these conditions!</div>
+</ng-template>

@@ -1,0 +1,16 @@
+.us {
+    border: 1px solid green;
+    border-radius: 8px;
+}
+
+mat-list {
+    display: flex;    
+    flex-wrap: wrap;
+    max-width: 190px;        
+}
+
+mat-list-item {
+    width: 18px !important;
+    padding: 0 10px !important;            
+    font-weight: 700;
+}
