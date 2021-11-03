@@ -1,11 +1,14 @@
-import { TASK } from './../inject-tokens';
-import { ident } from './../services/common.service';
-import { FireRequestsService } from './../services/fire-requests.service';
+import { environment } from 'src/environments/environment.prod';
+// import { AliRequestsService } from 'projects/ebayali/src/lib//alirequests.service';
+import { TASK } from '../inject-tokens';
+// import { CommonService, ident } from 'projects/ebayali/src/lib/common.service';
+// import { FireRequestsService } from 'projects/ebayali/src/lib/fire-requests.service';
 import { Component, OnInit, Output, OnDestroy, Inject } from '@angular/core';
-import { AliRequestsService } from '../services/ali-requests.service';
+//import { AliRequestsService } from '../services/ali-requests.service';
 import { EventEmitter } from '@angular/core';
-import { CommonService } from '../services/common.service';
+//import { CommonService } from '../services/common.service';
 import { combineLatest } from 'rxjs';
+import { AliRequestsService, CommonService, FireRequestsService, ident } from 'ebayali';
 
 
 interface update_states {
@@ -25,6 +28,7 @@ export class AliUpdateComponent implements OnInit, OnDestroy {
 
   constructor(public aliReq: AliRequestsService, public fireReq: FireRequestsService, public common: CommonService, @Inject(TASK) public updateTask: string) { }
 
+  //www=new AliRequestService
 
   ngOnInit(): void { 
     
@@ -64,6 +68,7 @@ export class AliUpdateComponent implements OnInit, OnDestroy {
   statusSubscription:any;
   listsSubscription: any;
 
+  //methods=[1,2,3,4,5]
 
   update_states: update_states = {};
 
@@ -181,7 +186,7 @@ export class AliUpdateComponent implements OnInit, OnDestroy {
 
     let updCnts=this.shipUpdateOptions.find(x => x.value==this.shippingUpdateMode)!.cnts;
 
-    if (this.updateTask=='shipping') return Object.keys(this.metaList).reduce((total, code)=>          
+    if (this.updateTask=='shipping') return Object.keys(this.metaList).reduce((total, code)=>                    
           [...total, ...!this.common.isRemoved(this.metaList[code])?
           this.common.outdatedElems(
           updCnts.reduce((obj,cnt)=>Object.assign(obj,{[cnt]:this.shipList[code][cnt]}),{})
@@ -227,7 +232,7 @@ export class AliUpdateComponent implements OnInit, OnDestroy {
 
 
   apiUpdateBridge(list: any){                
-    this.subscription = this.aliReq.getElems(list, this.updateTask).subscribe(
+    this.subscription = this.aliReq.getElems(list, this.updateTask, environment.ali_key).subscribe(
             series => {
               this.forRecording = [];
               (<any[]>series).forEach(item => {              

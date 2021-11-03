@@ -1,10 +1,11 @@
 import { AfterViewChecked, ChangeDetectorRef, ElementRef, Inject, ViewChild } from '@angular/core';
-import { CommonService } from './../services/common.service';
-import { FireRequestsService, prod } from './../services/fire-requests.service';
+// import { CommonService } from 'projects/ebayali/src/lib/common.service';
+// import { FireRequestsService, prod } from 'projects/ebayali/src/lib/fire-requests.service';
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { SelectionModel} from '@angular/cdk/collections';
 import { TASK } from '../inject-tokens';
+import { CommonService, FireRequestsService, prod } from 'ebayali';
 
 interface listElem extends prod {  
   outdated: string[];
@@ -117,7 +118,8 @@ export class AliListComponent implements OnInit, OnDestroy, AfterViewChecked {
   }
 
   updateStatus(status:any) {        
-    let prod = ((this.common.task=='products')?(<listElem[]>this.dataSource.data):(<listElem[]>this.dataSource.data))
+    //let prod = ((this.common.task=='products')?(<listElem[]>this.dataSource.data):(<listElem[]>this.dataSource.data))
+    let prod = (<listElem[]>this.dataSource.data)
         .find(x=>x.code==status.code);
     if (prod) prod['update_state']={...prod['update_state'], ...{[status.country]: status.msg}};            
   }

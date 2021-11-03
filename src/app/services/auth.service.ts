@@ -1,11 +1,17 @@
-import { environment } from 'src/environments/environment';
+//import { environment } from 'src/environments/environment.prod';
+
 import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map } from 'rxjs/operators';
-import { authError, wrongAuth } from '../auth-errors';
+//import { authError, wrongAuth } from './auth-errors';
+//import { keys} from 'ebayali'
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Subscription, interval } from 'rxjs';
+import { authError, wrongAuth } from './auth-errors';
+import { environment } from 'src/environments/environment.prod';
+//import { keys } from './keys';
+//import { importExpr } from '@angular/compiler/src/output/output_ast';
 
 @Injectable({
   providedIn: 'root'  
@@ -32,6 +38,7 @@ export class AuthService {
   }
 
   signin(form_value:any){        
+    //return this.http.post<string>(keys.rel_host+"/authentication.php", form_value, {observe: 'response'})
     return this.http.post<string>(environment.rel_host+"/authentication.php", form_value, {observe: 'response'})
       .pipe(
         map(response => {                

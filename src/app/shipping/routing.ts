@@ -1,4 +1,4 @@
-import { UpdateWrapComponent } from './../update-wrap/update-wrap.component';
+import { UpdateWrapComponent } from '../update-wrap/update-wrap.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 

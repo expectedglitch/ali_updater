@@ -2,6 +2,8 @@ import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 
+//import { AuthService } from 'projects/ebayali/src/lib/auth.service';
+
 interface clock {
   hours: number,
   minutes: number,

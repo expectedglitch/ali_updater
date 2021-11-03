@@ -1,19 +1,21 @@
-import { ReldbRequestsService } from './../services/reldb-requests.service';
+import { environment } from 'src/environments/environment.prod';
+//import { ReldbRequestsService } from 'projects/ebayali/src/lib/reldb-requests.service';
 import { Component, Input, OnInit, OnDestroy, NgZone } from '@angular/core';
+import { CommonService, FireRequestsService, itemforTransfer, ReldbRequestsService } from 'ebayali';
 import { combineLatest, concat, forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { CommonService } from '../services/common.service';
-import { FireRequestsService } from '../services/fire-requests.service';
+//import { CommonService, itemforTransfer } from 'projects/ebayali/src/lib/common.service';
+//import { FireRequestsService } from 'projects/ebayali/src/lib/fire-requests.service';
 
 
-export interface itemforTransfer {
-  code: string,
-  country: string,
-  modules: any,
-  basic_country: boolean,
-  state: number,
-  time: number  
-}
+// export interface itemforTransfer {
+//   code: string,
+//   country: string,
+//   modules: any,
+//   basic_country: boolean,
+//   state: number,
+//   time: number  
+// }
 
 @Component({
   selector: 'app-reldb-communication',
@@ -40,7 +42,7 @@ export class ReldbCommunicationComponent implements OnInit, OnDestroy {
           }),{})
         } ],[] as any[])
   
-        this.relDBReq.uploadShips(merged).subscribe(res => {  
+        this.relDBReq.uploadShips(merged, environment.rel_host).subscribe(res => {  
           if (res!=='error') {
             this.total+=Object.keys(data).length;        
             this.uploaded+=(<any[]>res).reduce((sum,elem)=>elem.state=='successful'?sum+1:sum,0);        
@@ -82,7 +84,7 @@ export class ReldbCommunicationComponent implements OnInit, OnDestroy {
 
 
   getRelDBSources() {
-    let sourse$=(this.task=='products'?this.relDBReq.getListOfProductsAndLinks():this.relDBReq.getListOfProducts());
+    let sourse$=(this.task=='products'?this.relDBReq.getListOfProductsAndLinks(environment.rel_host):this.relDBReq.getListOfProducts(environment.rel_host));
     if (this.task=='products') this.fireReq.clearProdsData();
     if (this.task=='shipping') this.fireReq.clearShipData();
     this.relDBSourceSubscription = sourse$.subscribe(products => {
@@ -126,11 +128,12 @@ export class ReldbCommunicationComponent implements OnInit, OnDestroy {
           .map(prodArray => combineLatest(prodArray)),serriesLength)
                     .map(serries => forkJoin(serries)))
                             .pipe(
-                                  map (portion => portion.map(prod => this.common.mergeSlices(prod as itemforTransfer[], this.task))),
+                                  //map (portion => portion.map(prod => this.common.mergeSlices(prod as itemforTransfer[], this.task))),
+                                  map (portion => portion.map(prod => this.common.mergeSlices(prod as itemforTransfer[]))),
                                   map (portion => portion.map(prod => ({...prod, ...{links: this.fireReq.links[prod.code]} }) ))
                                   )                  
       .subscribe (portion => {                                                              
-            this.uploadingSubscription = this.relDBReq.uploadItems(portion)
+            this.uploadingSubscription = this.relDBReq.uploadItems(portion, environment.rel_host)
               .subscribe(res => {
                 if (res!=='error'){
                   this.total+=portion.length;

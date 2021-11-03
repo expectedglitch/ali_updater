@@ -10,8 +10,12 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatTableModule } from '@angular/material/table';
 import { AngularFireModule } from '@angular/fire';
-import { environment } from 'src/environments/environment';
+//import { environment } from 'src/environments/environment.prod';
 import { SpinnerComponent } from '../spinner/spinner.component';
+import { environment } from 'src/environments/environment.prod';
+
+//import {keys} from 'ebayali';
+//import {MatListModule} from '@angular/material/list';
 
 
 
@@ -21,7 +25,7 @@ import { SpinnerComponent } from '../spinner/spinner.component';
     AliListComponent,    
     ReldbCommunicationComponent,        
     UpdateWrapComponent,
-    SpinnerComponent
+    SpinnerComponent,
   ],
   imports: [
     CommonModule,
@@ -32,8 +36,10 @@ import { SpinnerComponent } from '../spinner/spinner.component';
     MatCheckboxModule,
     MatButtonModule,
 
+    //AngularFireModule.initializeApp(keys.firebase),     
     AngularFireModule.initializeApp(environment.firebase),     
     
+    //MatListModule
   ]
 })
 export class UpdatingModule { }

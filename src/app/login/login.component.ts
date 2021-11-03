@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { wrongAuth } from '../auth-errors';
+import { wrongAuth } from '../services/auth-errors';
+//import { wrongAuth } from 'ebayali';
 import { AuthService } from '../services/auth.service';
+// import { wrongAuth } from 'projects/ebayali/src/lib/auth-errors';
+// import { AuthService } from 'projects/ebayali/src/lib/auth.service';
 
 @Component({
   selector: 'app-login',

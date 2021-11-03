@@ -1,4 +1,5 @@
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.prod';
+//import { environment } from 'src/environments/environment';
 import { Injectable } from '@angular/core';
 import {
   HttpRequest,
@@ -7,6 +8,9 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+//import { AuthService } from 'projects/ebayali/src/lib/auth.service';
+
+//import {keys} from 'ebayali'
 import { AuthService } from '../services/auth.service';
 
 @Injectable({
@@ -19,10 +23,9 @@ export class RelDBInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const { url, method, headers, body, params } = request;
-
-    console.log('Add Auth Headers interceptor...')
-    
+        
     if (url.includes(environment.rel_host+'/api/')){
+      console.log('Add Auth Headers interceptor...')
       return next.handle(
           request.clone({
               headers: headers.set('Authtoken','Bearer '+(this.auth.authToken?this.auth.authToken:'')) 
