@@ -1,0 +1,47 @@
+{
+    "manifest_version": 2,
+    "name": "aliListing_Extension",
+    "version": "0.1",
+  
+    "permissions":[
+      "activeTab",
+      "storage",
+      "tabs",
+      "webNavigation"
+    ],
+  
+    "background": {
+        "scripts": ["background.js"]
+                    },
+  
+  
+    "content_scripts": [
+    {
+     
+     "all_frames": true, 
+  
+      "matches": ["*://*.aliexpress.com/item/*"],
+  
+      "js": ["jquery-3.6.0.min.js", "content.js"],
+  
+      "css": ["styles.css"]
+  
+      }
+    ],
+  
+    "icons": {
+      "16": "icon.png",
+      "32": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    },
+
+  
+    "browser_action": {
+      "default_icon": "icon.png"            
+    },
+
+    "web_accessible_resources": [
+      "angular/index.html"
+    ]
+  }
