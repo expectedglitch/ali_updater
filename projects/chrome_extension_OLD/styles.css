@@ -1,0 +1,316 @@
+body #controls {
+	position: fixed;
+	/*bottom: 50px;*/
+	top: 490px;
+	right: -330px;
+	z-index: 100000;
+	height: 620px;
+	width: 320px;
+	transition: right 0.5s;
+	border: 1px solid lightgray;
+	padding-left: 15px;
+	/*display: none;*/
+
+}
+body #controls.show {
+	/*display: block;*/
+	right: 30px;
+	transition: right 0.5s;
+}
+
+.expandable_bar {
+	height: 620px; 
+	width:27px; 
+	background-color: #7FFFD4;
+	position: fixed;
+	top: 490px;
+	/*bottom: 50px;*/
+	right: 0px;
+	z-index: 100000;
+	border: 1px solid lightgray;	
+}
+
+
+body {
+	position: relative;
+}
+
+body #controls .prod_list {
+	height: 30px;
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+#fill_basics {
+	width: 60%;
+	border: 2px LightGray solid;
+	border-radius: 10px;
+	padding: 16px 0;
+	text-align: center;
+	font-weight: 700;
+	color: Gray;
+	pointer-events: none;
+}
+
+#assist_fields {
+	width: 100%;
+	height: 230px;
+	text-align: right;
+	border: 1px solid LightGray;
+	border-radius: 5px; 
+	margin-bottom: 60px;	
+}
+
+.fld {
+	margin: 20px 5px;
+}
+
+.fld input {
+	width: 200px;
+	pointer-events :none;
+	background-color: LightGray;
+}
+
+#saving_btns {
+	display: flex;
+	width: 100%; 
+	justify-content: flex-start;
+	align-items: center;
+	margin-bottom: 55px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid lightgray;
+}
+
+#assist_list {
+	height:50px;
+	color:LightGray
+}
+
+#saving_btns label.lbl2, #assist_list, #assist_list .option, #send_to_assist {
+	font-size: 16px;
+	font-weight: 700;
+}
+#saving_btns label.lbl2 {
+	color: LightGray;
+}
+
+#send_to_assist {
+	margin-right: 10px;
+	cursor: default;
+	height:50px;	
+	color:black;
+}
+
+#labelcat1_par {
+	position: relative;
+}
+
+#cover_1 {
+	width: 100%;
+	height: 20px;
+	background-color: black;
+	opacity: 7%;
+	position: absolute;
+	top: 0px;
+}
+
+.listing_state {
+	width: 100%;
+	height: 30px;
+	display: flex;
+	font-weight: 700 !important;
+}
+.listing_state.active {color: green}
+.listing_state.draft {color: blue}
+
+#assist_load {		
+	height: 40px;		
+	padding: 0 10px;	
+	border-radius: 5px;
+	position: relative;
+	cursor: context-menu;	
+	margin-bottom: 10px;	
+}
+#assist_load.loaded{
+	border: 4px solid green;
+	cursor: pointer;	
+}
+#assist_load.finished{
+	border: 4px solid green;
+	cursor: pointer;	
+}
+#assist_load.not_ready{
+	border: 1px solid green;
+}
+#assist_load.not_sent{
+	border: 1px solid blue;
+}
+
+
+#assist_load .assist_state {
+	line-height: 40px;	
+	outline: 0;	
+	font-size: 20px;	
+}
+#assist_load.loaded .assist_state {
+	color: white;
+	background-color: green;
+	font-weight: 700;
+	padding: 3px 5px;		
+	border-radius: 5px;
+}
+#assist_load.finished .assist_state {
+	color: green;
+	font-weight: 700;		
+}
+#assist_load.not_ready .assist_state {
+	color: green;
+	font-weight: 200;		
+}
+#assist_load.not_sent .assist_state {
+	color: blue;
+	font-weight: 200;		
+}
+
+#controls .lbl_bb {
+	position: absolute;
+	top: -24px;
+	right: -12px;	
+	padding: 0 5px;
+}
+
+#controls #assist_load.not_ready .lbl_bb, #controls #assist_load.finished .lbl_bb, #controls #assist_load.loaded .lbl_bb {
+	border: 1px solid green;
+}
+
+.active_update {
+	color: #D2691E;
+	font-size: 14px;
+	font-weight: 700;
+	position: absolute;
+	top: 30px;	
+}
+
+#controls.nothing_to_upload:after {
+	content: "nothing_to_upload";
+	display: block;
+	position: absolute;
+	left: 20px;
+	bottom: 88px;
+	z-index: 110000;
+	color: gray;
+}
+
+input.inactive {
+	color: gray;
+}
+
+.ali_load_container .buttons {
+	display: flex;
+}
+
+.ali_load_container {
+	position: absolute;
+	bottom: 400px;
+	right: 50px;
+	height: 150px;
+}
+
+#ali_load_btn {
+	min-height: 50px;
+	font-size: 16px;
+	font-weight: 200;
+	color: green;
+}
+#ali_load_btn span, #ali_update_btn span {
+	font-size: 20px;
+	color: red;
+}
+/*.ali_load_container.load #ali_load_btn span {
+	color: red;
+}*/
+
+#ali_update_btn {
+	margin-left: 30px;
+	padding: 0px 10px;
+	color: green;
+	font-size: 20px;
+}
+
+.ali_load_container .r3 {
+	margin-top: 30px;
+	border-top: 1px solid lightgray;
+}
+
+.ali_load_container .r3 .competitor {
+	margin-top: 10px;
+}
+
+.ali_load_container.load #ali_load_btn{
+	pointer-events: auto;
+}
+.ali_load_container.load #ali_update_btn{
+	pointer-events: none;
+	border: 1px solid lightgray;
+	color: darkgray;
+}
+
+.ali_load_container.update #ali_update_btn{
+	pointer-events: auto;
+}
+.ali_load_container.update #ali_load_btn{
+	pointer-events: none;
+	border: 1px solid lightgray;
+	color: darkgray;
+}
+
+
+.img_controls {
+	display: inline-block;
+	height: 110px;
+	width: 350px;
+	position: relative;
+}
+#pic_select {
+	display: inline-block;	
+}
+#pic_select div{
+	display: flex;
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+#pic_select span {
+	display: block;
+	width: 35px;	
+	cursor: pointer;
+	text-align: center;
+	background-color: lightgray;
+	border: 1px solid gray;
+	margin-right: 10px;
+}
+
+.mini_img {
+	position: absolute;
+	bottom: 25px;
+	right: 5px;
+	/*display: inline-block;*/
+	width: 100px;	
+}
+.mini_img img{
+	display: none;
+}
+.mini_img.show img{
+	display: block;
+	width: 100%;
+	border: 1px solid lightgray;
+}
+.insert_template {
+	display: inline-block;
+	cursor: pointer;
+	font-weight: 700 !important;
+	margin-left: 10px;
+}
+
+.insert_template:hover {
+	text-decoration: underline;	
+}

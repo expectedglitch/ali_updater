@@ -1,0 +1,42 @@
+{
+  "manifest_version": 2,
+  "name": "eBayListing",
+  "version": "0.1",
+
+  "permissions":[
+    "activeTab",
+    "storage",
+    "tabs",
+    "webNavigation"
+  ],
+
+  "background": {
+  "scripts": ["background.js"]
+                  },
+
+
+  "content_scripts": [
+  {
+   
+   "all_frames": true, 
+
+    "matches": ["*://*.ebay.com/*", "*://*.aliexpress.com/item/*"],
+
+    "js": ["jquery-3.4.1.min.js", "/libs/onloading_actions.js", "/libs/other_listeners_functions.js", "/libs/base_filling.js", "/libs/functions.js", "content.js"],
+
+    "css": ["styles.css"]
+
+    }
+  ],
+
+  "icons": {
+      "16": "icon16.png",
+      "32": "icon32.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    },
+
+  "browser_action": {
+    "default_icon": "icon.png"
+	}
+}

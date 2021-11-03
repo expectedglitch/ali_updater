@@ -1,0 +1,138 @@
+.page-title {
+	position: relative;
+}
+
+/*.page-title span.process_indication {*/
+.page-title .update_dashboard{
+	/*position: absolute;*/
+	position: fixed;
+	top:150px;
+	right: 100px;
+	z-index: 10000;
+	background-color: white;	
+	/*width: 560px;*/
+}
+.page-title .update_dashboard.catalog {
+	border-radius: 5px;
+	border: 1px solid brown;
+	padding: 10px;
+}
+.page-title .update_dashboard.new:after, .page-title .update_dashboard.changed:after, .page-title .update_dashboard.not_changed:after, .page-title .update_dashboard.changed_new:after, .page-title .update_dashboard.all:after {
+	display: block;	
+	position: absolute;
+	top: -40px;
+	right: 0;
+	font-size: 16px;
+	font-weight: 700;
+	color: brown;
+}
+.page-title .update_dashboard.new:after{content: "NEW pols from App"}
+.page-title .update_dashboard.changed:after{content: "CHANGED pols from App"}
+.page-title .update_dashboard.not_changed:after{content: "NOT CHANGED, but present in App"}
+.page-title .update_dashboard.changed_new:after{content: "CHANGED and NEW pols from App"}
+.page-title .update_dashboard.all:after{content: "ALL pols from App"}
+
+.update_dashboard span.process_indication, .save_button, .process_button, .run_button {	
+	line-height: normal;
+	display: block;
+	text-align: center;
+	color: brown;
+	background-color: #7FFFD4;
+	border-radius: 5px;
+	border: 3px solid brown;
+	padding: 5px;
+}
+.save_button, .process_button, .run_button {
+	/*display: block;*/
+	margin-top: 15px;
+	cursor: pointer;	
+}
+
+.run_button {
+	color: black;
+	background-color: #FFA500; 
+}
+
+/*.page-title span.process_indication small{*/
+.update_dashboard span.process_indication small{
+	font-size: 36px;
+	font-weight: 700;
+	color: #006400;
+}
+
+
+/*.update_dashboard .domestic_section select{
+	display: block;
+}*/
+
+.update_dashboard .domestic_section, .update_dashboard .international_section {
+	background-color: white;
+	line-height: normal;
+	border-radius: 5px;
+	border: 1px solid green;
+	padding: 10px 5px;
+	position: relative;
+	margin-top: 15px;
+}
+.update_dashboard .domestic_section:after, .update_dashboard .international_section:after {
+	display: block;
+	position: absolute;
+	right:5px;
+	top:0;
+	color: brown;	
+	font-size: 12px;
+}
+.update_dashboard .domestic_section:after{
+	content: "domestic";
+}
+.update_dashboard .international_section:after{
+	content: "international";
+}
+
+
+.update_dashboard .domestic_section .sec {
+	display: block;
+}
+
+.update_dashboard .domestic_section .services, .update_dashboard .international_section .services {
+	width: 265px;
+}
+
+.update_dashboard .domestic_section .handling_time {
+	width: 100px;	
+}
+.update_dashboard .domestic_section label {
+	font-size: 14px;	
+}
+
+
+.update_dashboard span.prev_services, .update_dashboard span.prev_handling_time {
+	font-size: 14px;
+	display: inline-block;
+	text-align: left;
+}
+.update_dashboard span.prev_services{
+	width: 265px;
+	position: relative;
+}
+.update_dashboard span.prev_handling_time{
+	width: 100px;
+	position: relative;
+}
+
+.fld_not_chng:after, .fld_chng:after {
+	display: block;	
+	font-size: 10px;
+	position: absolute;
+	bottom: 0px;
+	right: 5px;
+	border-radius: 5px;
+	border: 1px solid brown;
+	padding: 2px;
+}
+.fld_chng:after {
+	content: "CHANGED!";
+}
+.fld_not_chng:after {
+	content: "not_changed";
+}
